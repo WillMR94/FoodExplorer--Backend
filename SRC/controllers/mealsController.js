@@ -3,7 +3,7 @@ const knex = require("../database/knex");
 const AppError = require("../utils/AppError.js");
 class mealsController{
 
-  async create(request, response){
+async create(request, response){
     const {imgUrl,title, text, price, ingredients, type} = request.body
 
     const movieNotes = await knex("Meals").insert({
@@ -24,7 +24,7 @@ async index(request, response){
 
 async show(request, response){
   const { id } = request.params;
-  const showById = await knex("Meals").where("id", id).select(["id","title","text","price","ingredients","type"]);
+  const showById = await knex("Meals").where("id", id).select(["imgUrl","id","title","text","price","ingredients","type"]);
   response.json(showById)}
 
 
