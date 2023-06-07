@@ -12,6 +12,7 @@ const mealsController = new MealsController();
 const mealsImageController = new MealsImageController();
 mealsRoutes.use(ensureAuthenticated);
 mealsRoutes.post("/create", mealsController.create);
+mealsRoutes.put("/:id", mealsController.update);
 mealsRoutes.delete("/:id", mealsController.delete);
 mealsRoutes.get("/",mealsController.index);
 mealsRoutes.get("/search/:search",mealsController.search);
