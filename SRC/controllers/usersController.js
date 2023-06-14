@@ -15,7 +15,7 @@ class UsersController {
 
 
   async create(request, response) {
-    const { name, pass, email } = request.body;
+    const { name, pass, email, access } = request.body;
 
     const database = await sqliteconnection();
     const checkUserExists = await database.get("SELECT * FROM users WHERE email = (?)", [email])
@@ -27,8 +27,8 @@ class UsersController {
     const hashedPassword = await hash(pass, 8);
 
     await database.run(
-      "INSERT INTO users (name, email, password) VALUES (?,?,?)",
-      [ name, email, hashedPassword]
+      "INSERT INTO users (access, name, email, password) VALUES (?,?,?,?)",
+      [access, name, email, hashedPassword]
     )
 
     return response.status(201).json();

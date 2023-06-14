@@ -25,8 +25,9 @@ class SessionsController {
     const token = sign({}, secret, {
       subject: String(user.id),expiresIn,      
     })
+    const access = user.access
     
-      return response.json({user, token});
+      return response.json({user, token, access});
   }
 }
 

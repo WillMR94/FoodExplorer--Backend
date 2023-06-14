@@ -39,7 +39,7 @@ response.json();
 }
 
 async index(request, response){
-  const showAll = await knex("Meals");
+  const showAll = await knex("Meals");  
   response.json(showAll)}
 
 async show(request, response){
