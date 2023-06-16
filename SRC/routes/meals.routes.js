@@ -3,7 +3,7 @@ const multer = require("multer");
 const uploadConfig = require("../configs/upload");
 const upload = multer(uploadConfig.MULTER);
 const MealsController = require('../controllers/MealsController');
-const MealsImageController = require("../controllers/mealsImageController");
+const MealsImageController = require("../controllers/MealsImageController");
 const ensureAuthenticated = require("../middlewares/ensureAuth.js");
 
 const mealsRoutes = Router();
