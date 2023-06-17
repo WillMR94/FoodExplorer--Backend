@@ -58,8 +58,8 @@ async search(request, response){
   let showIndexTitle;
   let showIndexIngredients;
 
-  showIndexTitle = await knex("Meals").whereLike("title", `%${search}%`).select(["id","title","text","price","ingredients","type"]);
-  showIndexIngredients = await knex("Meals").whereLike("ingredients", `%${search}%`).select(["id","title","text","price","ingredients","type"])
+  showIndexTitle = await knex("Meals").whereLike("title", `%${search}%`).select(["imgUrl","id","title","text","price","ingredients","type"]);
+  showIndexIngredients = await knex("Meals").whereLike("ingredients", `%${search}%`).select(["imgUrl","id","title","text","price","ingredients","type"])
 
   if(showIndexTitle.length <= 0 && showIndexIngredients.length <= 0 ){
     response.json('Nada encontrado')
